@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hackit3/Signup.dart';
+import 'package:hackit3/screens/Signup.dart';
 
 import 'package:provider/provider.dart';
 
-import 'HomePage.dart';
-import 'SignIn.dart';
+import 'screens/HomePage.dart';
+import 'screens/SignIn.dart';
 import 'Utils/Authentification_service.dart';
 
 Future<void> main() async {
