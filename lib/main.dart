@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: Signup(),
+        home: AuthentificationWrapper(),
       ),
     );
   }
@@ -54,16 +54,5 @@ class AuthentificationWrapper extends StatelessWidget {
       return HomePage();
     }
     return SignIn();
-  }
-}
-
-class Sidali extends StatelessWidget {
-  const Sidali({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Text('sidali'),
-    );
   }
 }
