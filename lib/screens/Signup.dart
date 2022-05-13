@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackit3/screens/SignIn.dart';
 
 class Signup extends StatelessWidget {
   const Signup({Key? key}) : super(key: key);
@@ -190,7 +191,14 @@ class Signup extends StatelessWidget {
                       ),
                     )),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignIn(),
+                            ),
+                          );
+                        },
                         child: const Text(
                           "J'ai pas un compte",
                           style: TextStyle(
