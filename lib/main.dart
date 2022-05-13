@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hackit3/Signup.dart';
+import 'package:hackit3/screens/Signup.dart';
+import 'package:hackit3/screens/Splash.dart';
 
 import 'package:provider/provider.dart';
 
-import 'HomePage.dart';
-import 'SignIn.dart';
+import 'screens/HomePage.dart';
+import 'screens/SignIn.dart';
 import 'Utils/Authentification_service.dart';
 
 Future<void> main() async {
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+    
       providers: [
         Provider<AuthService>(
           create: (_) => AuthService(FirebaseAuth.instance),
@@ -32,7 +34,9 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
