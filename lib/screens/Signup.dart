@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackit3/screens/Children.dart';
 import 'package:hackit3/screens/SignIn.dart';
 
 import 'HomePage.dart';
@@ -206,7 +207,7 @@ class Signup extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => SignIn())));
+                                  builder: ((context) => Children())));
                         },
                         child: Text(
                           "Already have an account?",

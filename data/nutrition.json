@@ -1,0 +1,114 @@
+{
+    "type": "nutrition",
+    "user": {
+        "last_webhook_update": null,
+        "provider": "UNDERARMOUR",
+        "user_id": "bb4f17af-f342-489c-b155-92050137cb49"
+    },
+    "data": [
+        {
+            "summary": {
+                "water_ml": 1826,
+                "macros": {
+                    "protein_g": 80.90653078062365,
+                    "vitamin_A_mg": 0.4328250549291798,
+                    "fat_g": 48.8008679758487,
+                    "cholesterol_mg": 396.57060321316703,
+                    "carbohydrates_g": 213.16796221444054,
+                    "vitamin_C_mg": 0.046434018516195705,
+                    "potassium_mg": null,
+                    "sodium_mg": 1920.4203571171765,
+                    "calories": 1571,
+                    "sugar_g": 76.44457622220746,
+                    "fiber_g": 34.68845834795876
+                }
+            },
+            "metadata": {
+                "start_time": "2022-05-12T21:46:09.432823+00:00",
+                "end_time": "2022-05-12T22:26:09.432823+00:00"
+            },
+            "meals": [
+                {
+                    "macros": {
+                        "protein_g": 40.59082245573155,
+                        "vitamin_A_mg": 0.38365268921892814,
+                        "fat_g": 81.34114278891501,
+                        "cholesterol_mg": 118.95382600199156,
+                        "carbohydrates_g": 312.62495606861074,
+                        "vitamin_C_mg": 0.19192428957405386,
+                        "potassium_mg": null,
+                        "sodium_mg": 685.712131127583,
+                        "calories": 2450,
+                        "sugar_g": 92.8051812314388,
+                        "fiber_g": 52.07517278426682
+                    },
+                    "name": null
+                },
+                {
+                    "macros": {
+                        "protein_g": 72.23927111518071,
+                        "vitamin_A_mg": 0.44137480442503696,
+                        "fat_g": 81.75644341707482,
+                        "cholesterol_mg": 291.5307483686054,
+                        "carbohydrates_g": 342.7276241150922,
+                        "vitamin_C_mg": 0.08027885182126365,
+                        "potassium_mg": null,
+                        "sodium_mg": 2064.218922138646,
+                        "calories": 2084,
+                        "sugar_g": 35.38534214114932,
+                        "fiber_g": 67.63681862049748
+                    },
+                    "name": null
+                },
+                {
+                    "macros": {
+                        "protein_g": 33.101929812771274,
+                        "vitamin_A_mg": 0.29457450661685436,
+                        "fat_g": 23.58474506475483,
+                        "cholesterol_mg": 193.39462305286915,
+                        "carbohydrates_g": 382.86594728986756,
+                        "vitamin_C_mg": 0.19850626333789873,
+                        "potassium_mg": null,
+                        "sodium_mg": 2292.037647269634,
+                        "calories": 1987,
+                        "sugar_g": 108.61278749604419,
+                        "fiber_g": 21.16349077688321
+                    },
+                    "name": null
+                },
+                {
+                    "macros": {
+                        "protein_g": 142.97147105768454,
+                        "vitamin_A_mg": 0.6083609307572493,
+                        "fat_g": 27.21358876958501,
+                        "cholesterol_mg": 189.53462070814845,
+                        "carbohydrates_g": 305.918031938747,
+                        "vitamin_C_mg": 0.12163984356713625,
+                        "potassium_mg": null,
+                        "sodium_mg": 761.6246058794643,
+                        "calories": 1981,
+                        "sugar_g": 90.92627651813211,
+                        "fiber_g": 34.53579729856252
+                    },
+                    "name": null
+                },
+                {
+                    "macros": {
+                        "protein_g": 97.30907841075533,
+                        "vitamin_A_mg": 0.34230046345626963,
+                        "fat_g": 20.487934659028355,
+                        "cholesterol_mg": 341.05248262105556,
+                        "carbohydrates_g": 363.72274417169274,
+                        "vitamin_C_mg": 0.054779405647398555,
+                        "potassium_mg": null,
+                        "sodium_mg": 3470.8110244946415,
+                        "calories": 1591,
+                        "sugar_g": 178.07130170061313,
+                        "fiber_g": 58.45476025357353
+                    },
+                    "name": null
+                }
+            ]
+        }
+    ]
+}

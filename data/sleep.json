@@ -1,0 +1,144 @@
+{
+    "type": "sleep",
+    "data": [
+        {
+            "respiration_data": {
+                "breaths_data": {
+                    "end_time": null,
+                    "min_breaths_per_min": null,
+                    "max_breaths_per_min": null,
+                    "start_time": null,
+                    "samples": [],
+                    "on_demand_reading": null,
+                    "avg_breaths_per_min": null
+                },
+                "snoring_data": {
+                    "end_time": null,
+                    "start_time": null,
+                    "samples": [],
+                    "total_snoring_duration": null,
+                    "num_snoring_events": null
+                },
+                "oxygen_saturation_data": {
+                    "end_time": null,
+                    "start_time": null,
+                    "samples": [],
+                    "on_demand_reading": null
+                }
+            },
+            "temperature_data": { "delta": 0.4342750287111783 },
+            "sleep_durations_data": {
+                "other": {
+                    "duration_in_bed": 47.04990789865458,
+                    "duration_unmeasurable_sleep": 49.622919229511446
+                },
+                "awake": {
+                    "num_out_of_bed_events": 20,
+                    "num_wakeup_events": 2,
+                    "duration_long_interruption": 24.33304012469795,
+                    "duration_short_interruption": 37.978640387590744,
+                    "duration_awake_state": 19.647878117438456,
+                    "waso": 44.665827332250586,
+                    "duration_before_sleeping": 41.741479616521445,
+                    "duration_after_wakeup": 15.722044678341483
+                },
+                "hypnogram_samples": [
+                    {
+                        "level": 5,
+                        "timestamp": "2022-05-12T23:09:30.299671+00:00"
+                    },
+                    {
+                        "level": 2,
+                        "timestamp": "2022-05-12T23:21:30.299671+00:00"
+                    },
+                    {
+                        "level": 0,
+                        "timestamp": "2022-05-12T23:33:30.299671+00:00"
+                    },
+                    {
+                        "level": 2,
+                        "timestamp": "2022-05-12T23:45:30.299671+00:00"
+                    },
+                    {
+                        "level": 3,
+                        "timestamp": "2022-05-12T23:57:30.299671+00:00"
+                    }
+                ],
+                "asleep": {
+                    "num_REM_events": 11,
+                    "duration_asleep_state": 7.273324381573433,
+                    "duration_deep_sleep_state": 36.4496088911105,
+                    "duration_REM_sleep_state": 17.422225458019536,
+                    "duration_light_sleep_state": 27.285507121760087
+                }
+            },
+            "metadata": {
+                "end_time": "2022-05-13T00:04:30.299671+00:00",
+                "start_time": "2022-05-12T23:09:30.299671+00:00",
+                "upload_type": 0,
+                "sleep_efficiency": 82.17736662035992,
+                "sleep_duration_planned": null
+            },
+            "heart_rate_data": {
+                "summary": {
+                    "user_hr_max": 182,
+                    "avg_hr": 54,
+                    "min_hr": 56,
+                    "max_hr": 66,
+                    "avg_hr_variability": 83
+                },
+                "detailed": {
+                    "hrv_samples": [
+                        {
+                            "hrv": 84,
+                            "timestamp": "2022-05-12T23:09:30.299671+00:00"
+                        },
+                        {
+                            "hrv": 82,
+                            "timestamp": "2022-05-12T23:21:30.299671+00:00"
+                        },
+                        {
+                            "hrv": 128,
+                            "timestamp": "2022-05-12T23:33:30.299671+00:00"
+                        },
+                        {
+                            "hrv": 146,
+                            "timestamp": "2022-05-12T23:45:30.299671+00:00"
+                        },
+                        {
+                            "hrv": 143,
+                            "timestamp": "2022-05-12T23:57:30.299671+00:00"
+                        }
+                    ],
+                    "hr_samples": [
+                        {
+                            "bpm": 79,
+                            "timestamp": "2022-05-12T23:09:30.299671+00:00"
+                        },
+                        {
+                            "bpm": 92,
+                            "timestamp": "2022-05-12T23:21:30.299671+00:00"
+                        },
+                        {
+                            "bpm": 81,
+                            "timestamp": "2022-05-12T23:33:30.299671+00:00"
+                        },
+                        {
+                            "bpm": 86,
+                            "timestamp": "2022-05-12T23:45:30.299671+00:00"
+                        },
+                        {
+                            "bpm": 177,
+                            "timestamp": "2022-05-12T23:57:30.299671+00:00"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "user": {
+        "last_webhook_update": null,
+        "user_id": "628ba830-07ea-48eb-9abe-f97fcd93d004",
+        "provider": "MYFITNESSPAL"
+    }
+}

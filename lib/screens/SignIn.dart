@@ -125,7 +125,7 @@ class SignIn extends StatelessWidget {
                               const Color(0xff8ABFCB)),
                         ),
                         child: const Text(
-                          "Sign Up",
+                          "Sign IN",
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 20,

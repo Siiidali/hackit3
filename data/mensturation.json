@@ -1,0 +1,28 @@
+{
+    "user": {
+        "last_webhook_update": null,
+        "provider": "FREESTYLELIBRESDK",
+        "user_id": "f9f28f88-4e62-4645-9dbe-398a8c186500"
+    },
+    "type": "menstruation",
+    "data": [
+        {
+            "metadata": {
+                "start_time": "2022-05-12T22:22:17.236119+00:00",
+                "end_time": "2022-05-12T22:54:17.236119+00:00"
+            },
+            "menstruation_data": {
+                "current_phase": 4,
+                "period_length_days": 32,
+                "last_updated_time": null,
+                "cycle_length_days": null,
+                "length_of_current_phase_days": 10,
+                "days_until_next_phase": 6,
+                "predicted_cycle_length_days": 30,
+                "is_predicted_cycle": null,
+                "day_in_cycle": 18,
+                "period_start_date": "2022-05-12T22:22:17.236119+00:00"
+            }
+        }
+    ]
+}
