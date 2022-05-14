@@ -7,7 +7,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import 'Utils/Authentification_service.dart';
+import '../Utils/Authentification_service.dart';
 
 class SignIn extends StatefulWidget {
   SignIn({Key? key}) : super(key: key);
