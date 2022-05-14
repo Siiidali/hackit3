@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hackit3/screens/SignIn.dart';
+
+import 'HomePage.dart';
 
 class Signup extends StatelessWidget {
   const Signup({Key? key}) : super(key: key);
@@ -7,10 +10,21 @@ class Signup extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+          backgroundColor: const Color(0xFFFAFCFB),
+          elevation: 0,
+        ),
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 25, right: 25, top: 80),
+            padding: const EdgeInsets.only(left: 25, right: 25, top: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -19,20 +33,8 @@ class Signup extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w700,
-                    color: Colors.black,
-                    fontSize: 38,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "Veuillez insérer vos données",
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w700,
-                    color: Color.fromARGB(255, 179, 179, 179),
-                    fontSize: 16,
+                    color: Color(0xff0A2342),
+                    fontSize: 34,
                   ),
                 ),
                 const SizedBox(
@@ -42,9 +44,10 @@ class Signup extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 50,
+                        height: 40,
                         child: TextFormField(
                           decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
                               filled: true,
                               fillColor: const Color(0xffF6F6F6),
                               hintText: "Name",
@@ -58,16 +61,17 @@ class Signup extends StatelessWidget {
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: 2,
-                                    color: Color(0xff2CA58D).withOpacity(0.5)),
+                                    color: Color(0xff8ABFCBD).withOpacity(0.5)),
                                 borderRadius: BorderRadius.circular(25),
                               )),
                         ),
                       ),
                       SizedBox(height: 15),
                       Container(
-                        height: 50,
+                        height: 40,
                         child: TextFormField(
                           decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
                               filled: true,
                               fillColor: Color(0xffF6F6F6),
                               hintText: "Email",
@@ -88,9 +92,10 @@ class Signup extends StatelessWidget {
                       ),
                       SizedBox(height: 15),
                       Container(
-                        height: 50,
+                        height: 40,
                         child: TextFormField(
                           decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
                               filled: true,
                               fillColor: Color(0xffF6F6F6),
                               hintText: "Date de naissance",
@@ -111,9 +116,10 @@ class Signup extends StatelessWidget {
                       ),
                       SizedBox(height: 15),
                       Container(
-                        height: 50,
+                        height: 40,
                         child: TextFormField(
                           decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
                               filled: true,
                               fillColor: Color(0xffF6F6F6),
                               hintText: "Password",
@@ -134,9 +140,10 @@ class Signup extends StatelessWidget {
                       ),
                       SizedBox(height: 15),
                       Container(
-                        height: 50,
+                        height: 40,
                         child: TextFormField(
                           decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
                               filled: true,
                               fillColor: const Color(0xffF6F6F6),
                               hintText: "Confirm password",
@@ -160,16 +167,21 @@ class Signup extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.11,
                 ),
                 Column(
                   children: [
                     Center(
                         child: Container(
-                      height: 55,
+                      height: 45,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => HomePage())));
+                        },
                         style: ButtonStyle(
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -177,7 +189,7 @@ class Signup extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15.0),
                           )),
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              const Color(0xff2CA58D)),
+                              const Color(0xff8ABFCB)),
                         ),
                         child: const Text(
                           "Sign Up",
@@ -190,12 +202,17 @@ class Signup extends StatelessWidget {
                       ),
                     )),
                     TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "J'ai pas un compte",
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => SignIn())));
+                        },
+                        child: Text(
+                          "Already have an account?",
                           style: TextStyle(
                               decoration: TextDecoration.underline,
-                              color: Colors.black),
+                              color: Color(0xffEFAF33).withOpacity(0.6)),
                         ))
                   ],
                 )

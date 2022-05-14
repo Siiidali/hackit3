@@ -1,179 +1,157 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:hackit3/screens/HomePage.dart';
+import 'package:hackit3/screens/Signup.dart';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-
-import '../Utils/Authentification_service.dart';
-
-class SignIn extends StatefulWidget {
-  SignIn({Key? key}) : super(key: key);
-
-  @override
-  State<SignIn> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  late ConnectivityResult _connectivityResult = ConnectivityResult.none;
-  final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<ConnectivityResult> _streamSubscription;
-
-  Future<void> initConnectivity() async {
-    late ConnectivityResult result;
-    try {
-      result = await _connectivity.checkConnectivity();
-    } on PlatformException catch (e) {
-      print(e.toString());
-    }
-
-    if (!mounted) {
-      return Future.value(null);
-    }
-
-    return _updateConnectionStatus(result);
-  }
-
-  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
-    setState(() {
-      _connectivityResult = result;
-    });
-  }
-
-  bool loading = false;
-
-  bool validEmail(String email) {
-    return RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(email);
-  }
-
-  bool validPassword(String password) {
-    return password.length >= 6 ? true : false;
-  }
-
-  void _showDialog(BuildContext context, String msg) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return CupertinoAlertDialog(
-          title: const Text("Oups !"),
-          content: Text(msg),
-          actions: [
-            TextButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+class SignIn extends StatelessWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            TextField(
-                controller: emailController,
-                decoration: const InputDecoration(labelText: "Email")),
-            TextField(
-                controller: passwordController,
-                decoration: const InputDecoration(labelText: "Email")),
-            TextButton(
-                onPressed: () {
-                  String email = emailController.text.trim();
-                  String password = passwordController.text;
-
-                  if (_connectivityResult.toString() ==
-                      "ConnectivityResult.none") {
-                    // No internet
-                    _showDialog(context, "Pas de connexion internet");
-                  } else {
-                    if (email.isNotEmpty && password.isNotEmpty) {
-                      if (validEmail(email)) {
-                        debugPrint("Valid email");
-                        if (validPassword(password)) {
-                          // Everything clear
-                          setState(() {
-                            loading = true;
-                          });
-
-                          // Firebase sign in with email and password
-                          context
-                              .read<AuthService>()
-                              .signInEmailAndPassword(
-                                email: email,
-                                password: password,
-                              )
-                              .then((value) {
-                            String msg = value.toString();
-
-                            switch (msg) {
-                              case "null":
-                                debugPrint("ERROR BSAH J SS PAS WSHNO");
-                                _showDialog(
-                                    context, "Un erreur est intervenue.");
-                                break;
-
-                              case "1":
-                                debugPrint(
-                                    "ERROR No user found for that email.");
-                                _showDialog(context, "Compte inexistant");
-                                setState(() {
-                                  loading = false;
-                                  emailController.text = "";
-                                  passwordController.text = "";
-                                });
-                                break;
-
-                              case "2":
-                                debugPrint(
-                                    "ERROR Wrong password provided for that user.");
-                                _showDialog(context, "Mot de passe incorrect");
-                                setState(() {
-                                  loading = false;
-                                  passwordController.text = "";
-                                });
-                                break;
-
-                              default:
-                                Future.delayed(
-                                        const Duration(milliseconds: 2500))
-                                    .then((onValue) {
-                                  setState(() {
-                                    loading = false;
-                                  });
-                                  Navigator.pop(context);
-                                });
-                            }
-                          });
-                        } else {
-                          // password invalid
-                          debugPrint("Mot de passe trop petit");
-                          _showDialog(context, "Mot de passe trop petit");
-                        }
-                      } else {
-                        // do smth email invlid
-                        debugPrint("Email invalide");
-                        _showDialog(context, "Email invalide");
-                      }
-                    } else {
-                      // Empty field
-                      _showDialog(context, "Veuillez remplir tout les champs");
-                    }
-                  }
-                },
-                child: const Text("se connecter"))
-          ],
+        appBar: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+          backgroundColor: const Color(0xFFFAFCFB),
+          elevation: 0,
+        ),
+        resizeToAvoidBottomInset: false,
+        body: Padding(
+          padding: const EdgeInsets.only(left: 25, right: 25),
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Welcome \nBack !",
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                    color: Color(0Xff0A2342),
+                    fontSize: 38,
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Form(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
+                              filled: true,
+                              fillColor: Color(0xffF6F6F6),
+                              hintText: "Email",
+                              hintStyle: const TextStyle(
+                                  color: Color(0xff908E8E),
+                                  fontFamily: 'Inter'),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2,
+                                    color: Color(0xff2CA58D).withOpacity(0.5)),
+                                borderRadius: BorderRadius.circular(25),
+                              )),
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      Container(
+                        height: 40,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 15),
+                              filled: true,
+                              suffixIcon: SvgPicture.asset(
+                                'assets/EyeClosed.svg',
+                                fit: BoxFit.scaleDown,
+                              ),
+                              fillColor: Color(0xffF6F6F6),
+                              hintText: "Password",
+                              hintStyle: const TextStyle(
+                                  color: Color(0xff908E8E),
+                                  fontFamily: 'Inter'),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2,
+                                    color: Color(0xff2CA58D).withOpacity(0.5)),
+                                borderRadius: BorderRadius.circular(25),
+                              )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Column(
+                  children: [
+                    Center(
+                        child: Container(
+                      height: 55,
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => HomePage())));
+                        },
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          )),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xff8ABFCB)),
+                        ),
+                        child: const Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 20,
+                              fontFamily: 'Lato',
+                              color: Colors.white),
+                        ),
+                      ),
+                    )),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => Signup())));
+                        },
+                        child: Text(
+                          "You don’t have an account?",
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Color(0xffEFAF33).withOpacity(0.6)),
+                        ))
+                  ],
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );
